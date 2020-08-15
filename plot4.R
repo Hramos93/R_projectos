@@ -11,7 +11,7 @@ df = read.table(file.path(pathdata,  "household_power_consumption.txt"), header=
 
 df_seg <- subset(df, Date %in% c("1/2/2007", "2/2/2007"))
 
-#PLOT 3_
+#PLOT 4_
 datetime <- strptime(paste(df_seg$Date, df_seg$Time, sep=" "), "%d/%m/%Y %H:%M:%S") 
 globalActivePower <- as.numeric(df_seg$Global_active_power)
 subMetering1 <- as.numeric(df_seg$Sub_metering_1)
