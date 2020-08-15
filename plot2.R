@@ -11,9 +11,10 @@ df = read.table(file.path(pathdata,  "household_power_consumption.txt"), header=
 
 df_seg <- subset(df, Date %in% c("1/2/2007", "2/2/2007"))
 
-#PLOT 1_
+#PLOT 2_
 
+datime <- strptime(paste(df_seg$Date, df_seg$Time, sep=""), "%d/%m/%Y %H:%M:%S")
 data <- as.numeric(df_seg$Global_active_power)
-png("plot.png", width=480, height=480)
-hist(data, col="red", main="Global Active Power", xlab = "Global Active Power(kW)")
+png("plot2.png", width=480, height=480)
+plot(datime, data, type="l", xlab="", ylab="Global Active Power (Pw)")
 dev.off()
