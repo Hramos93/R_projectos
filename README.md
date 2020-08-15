@@ -16,10 +16,16 @@ Second Graph  where it shows a plot the Global active power taking in cosiderati
 
 [Plot Global Active Power in Time ](https://github.com/Hramos93/R_projectos/blob/master/plot2.R)
 
+![](plot2.png )
 
 The third graph is a plot where it been can see lines that consider distincts segment or submetering  
 
 [plot Submetering   ](https://github.com/Hramos93/R_projectos/blob/master/plot3.R)
 
+
+![](plot3.png )
 Finally, es una cuadrícula que incluye las tres gráficas y una gráfica de voltaje.
+
 [plot Submetering   ](https://github.com/Hramos93/R_projectos/blob/master/plot4.R)
+
+![](plot4.png )
