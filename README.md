@@ -26,6 +26,6 @@ The third graph is a plot where it been can see lines that consider distincts se
 ![](plot3.png )
 Finally, es una cuadrícula que incluye las tres gráficas y una gráfica de voltaje.
 
-[plot Submetering   ](https://github.com/Hramos93/R_projectos/blob/master/plot4.R)
+[Grid Plot  ](https://github.com/Hramos93/R_projectos/blob/master/plot4.R)
 
 ![](plot4.png )
