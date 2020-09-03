@@ -1,5 +1,4 @@
 library(data.table)
-library(tidyverse)
 library(readr)
 
 NEI <- readRDS("./Projecto_II/summarySCC_PM25.rds")
