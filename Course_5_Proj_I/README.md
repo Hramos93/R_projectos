@@ -52,7 +52,7 @@ ggplot(Measures, aes(x=stepsbyday, fill = cut(x=stepsbyday, 100)))+
   ggtitle("Frequency Steps")
 ```
 
-![](https://github.com/Hramos93/R_projectos/tree/master/Course_5_Proj_I/figures)
+![](https://github.com/Hramos93/R_projectos/blob/master/Course_5_Proj_I/figures/plot1.png)
 
 
 #### Observations 
@@ -91,6 +91,7 @@ ggplot(intervals, aes(x=interval, y=steps)) +
  
 intervals[which(intervals$steps == max (intervals$steps)),]
 ```
+![](https://github.com/Hramos93/R_projectos/blob/master/Course_5_Proj_I/figures/plot2.png)
 
 ### Impute missing 
 
@@ -133,6 +134,8 @@ ggplot(FullSummedDataByDay, aes(x=totalsteps, fill = cut(x=totalsteps, 100)))+
   ggtitle("Total Daily Steps")
 ```
 
+![](https://github.com/Hramos93/R_projectos/blob/master/Course_5_Proj_I/figures/plot3.png)
+
 Now compute mean and median and to compare 
 
 ```{r echo = TRUE}
@@ -163,3 +166,5 @@ names(meandataweekendweekday) <- c("weekend", "interval", "steps")
   facet_grid(weekend ~.) + xlab("Interval") + ylab("Mean of Steps") +
   ggtitle("Comparison of Average Number of Steps in Each Interval")
 ```
+
+![](https://github.com/Hramos93/R_projectos/blob/master/Course_5_Proj_I/figures/plot4.png)
