@@ -129,5 +129,33 @@ ggplot(FullSummedDataByDay, aes(x=totalsteps, fill = cut(x=totalsteps, 100)))+
   ggtitle("Total Daily Steps")
 ```
 
+Now compute mean and median and to compare 
 
- 
+```{r echo = TRUE}
+meanPost <- round(mean(FullSummedDataByDay$totalsteps), digits = 2)
+medianPost <- round(median(FullSummedDataByDay$totalsteps), digits = 2)
+
+Compare <- data.frame(mean = c(meanPreNa,meanPost),median = c(medianPreNA,medianPost))
+rownames(Compare) <- c("Pre NA ", "Post NA ")
+print(Compare)
+
+```
+
+To plot steps by weekday or weekend, we going to columns with all values weekday and then creat a function with conditional, if date is saturday or sunday then make value weekend
+
+
+```{r echo = TRUE }
+meandata$date <- as.Date(meandata$date)
+meandata$weekday <- weekdays(meandata$date)
+meandata$weekend <- ifelse(meandata$weekday=="sábado" | meandata$weekday=="domingo", "Weekend", "Weekday" )
+
+meandataweekendweekday <- aggregate(meandata$steps , by= list(meandata$weekend, meandata$interval), na.omit(mean))
+names(meandataweekendweekday) <- c("weekend", "interval", "steps")
+
+```
+
+```{r echo = TRUE}
+ ggplot(meandataweekendweekday, aes(x=interval, y=steps, color=weekend)) + geom_line()+
+  facet_grid(weekend ~.) + xlab("Interval") + ylab("Mean of Steps") +
+  ggtitle("Comparison of Average Number of Steps in Each Interval")
+```
