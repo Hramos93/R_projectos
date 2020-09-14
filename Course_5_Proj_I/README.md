@@ -167,4 +167,4 @@ names(meandataweekendweekday) <- c("weekend", "interval", "steps")
   ggtitle("Comparison of Average Number of Steps in Each Interval")
 ```
 
-![](https://github.com/Hramos93/R_projectos/blob/master/Course_5_Proj_I/figures/plot4.png)
+![](./figures/plot4.png)
