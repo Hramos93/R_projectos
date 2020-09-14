@@ -60,7 +60,7 @@ replacewithmean <- function(x)
 meandata <- data %>% group_by(interval) %>%
   mutate(steps = replacewithmean(steps))
 
-head(meandata)
+summary(meandata)
 
 #Plot frequency steps 
 FullSummedDataByDay <- aggregate(meandata$steps, by=list(meandata$date), sum)

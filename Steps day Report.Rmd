@@ -116,7 +116,7 @@ FullSummedDataByDay <- aggregate(meandata$steps, by=list(meandata$date), sum)
 
 names(FullSummedDataByDay)[1] ="date"
 names(FullSummedDataByDay)[2] ="totalsteps"
-head(FullSummedDataByDay,15)
+head(FullSummedDataByDay,5)
 
 summary(FullSummedDataByDay)  
 ```
@@ -128,6 +128,48 @@ ggplot(FullSummedDataByDay, aes(x=totalsteps, fill = cut(x=totalsteps, 100)))+
   geom_histogram(show.legend=FALSE)+
   ggtitle("Total Daily Steps")
 ```
+
+###Observations 
+
+```
+- with impute now it can see been that distribution steps is normal
+```
+
+Now Compute new median and mean and compart both values 
+
+```{r echo = TRUE}
+meanPost <- round(mean(FullSummedDataByDay$totalsteps), digits = 2)
+medianPost <- round(median(FullSummedDataByDay$totalsteps), digits = 2)
+
+Compare <- data.frame(mean = c(meanPreNa,meanPost),median = c(medianPreNA,medianPost))
+rownames(Compare) <- c("Pre NA ", "Post NA ")
+print(Compare)
+
+```
+
+Now compute steps by week day and weekend, this will be convert all column in weekday, and so, use condition ifelse and looking values when weekday was Saturday or Sunday and change value to weekend
+
+```{r echo = TRUE }
+meandata$date <- as.Date(meandata$date)
+meandata$weekday <- weekdays(meandata$date)
+meandata$weekend <- ifelse(meandata$weekday=="sábado" | meandata$weekday=="domingo", "Weekend", "Weekday" )
+
+meandataweekendweekday <- aggregate(meandata$steps , by= list(meandata$weekend, meandata$interval), na.omit(mean))
+names(meandataweekendweekday) <- c("weekend", "interval", "steps")
+```
+```{r echo = TRUE}
+ggplot(meandataweekendweekday, aes(x=interval, y=steps, color=weekend)) + geom_line()+
+  facet_grid(weekend ~.) + xlab("Interval") + ylab("Mean of Steps") +
+  ggtitle("Comparison of Average Number of Steps in Each Interval")
+```
+
+## Conclusion
+
+```
+- In weekday is more frequent intervals  500 to 900 than weekend, but the weekend is more frequent to make intervals more long that the weekday.
+
+- Is necessary impute values NA beacuse it disturb distribution data.
+
 
 
  
