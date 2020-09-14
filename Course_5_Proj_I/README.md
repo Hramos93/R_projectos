@@ -52,7 +52,9 @@ ggplot(Measures, aes(x=stepsbyday, fill = cut(x=stepsbyday, 100)))+
   ggtitle("Frequency Steps")
 ```
 
-img[](https://github.com/Hramos93/R_projectos/tree/master/Course_5_Proj_I/figures)
+![](https://github.com/Hramos93/R_projectos/tree/master/Course_5_Proj_I/figures)
+
+
 #### Observations 
 
 ```
